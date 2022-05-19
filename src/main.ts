@@ -5,7 +5,14 @@ import App from './App.vue'
 import router from './router'
 import "./assets/style.scss"
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.filter('capital', (value: any) => {
+  if (value)
+    return value.toUpperCase();
+  else {
+    return "";
+  }
+})
 
 new Vue({
   router,

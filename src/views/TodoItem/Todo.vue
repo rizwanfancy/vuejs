@@ -1,45 +1,54 @@
 <template src="./Todo.html"></template>
 <script lang="ts">
-import "devextreme/dist/css/dx.light.css";
-import Component, { mixins } from "vue-class-component";
+import Component from "vue-class-component";
 import Vue from "vue";
-import {
-  DxForm,
-  DxSimpleItem,
-  DxGroupItem,
-  DxButtonItem,
-  DxButtonOptions,
-  DxTabbedItem,
-  DxTab,
-  DxTabPanelOptions,
-  DxNumericRule,
-  DxEmailRule,
-} from "devextreme-vue/form";
-import { DxCheckBox } from "devextreme-vue/check-box";
-import "devextreme-vue/text-area";
-import { IEmployee } from "../../Models/IEmployee";
+import BaseComponent from "@/Core/BaseComponent.vue";
 
-@Component({
-  components: {
-    DxForm,
-    DxSimpleItem,
-    DxGroupItem,
-    DxButtonItem,
-    DxButtonOptions,
-    DxTabbedItem,
-    DxTab,
-    DxTabPanelOptions,
-    DxNumericRule,
-    DxEmailRule,
-    DxCheckBox,
-  },
-})
-export default class TodoComponent extends Vue {
-  employee: IEmployee = {} as IEmployee;
-  isFormReadOnly = false;
+@Component
+export default class TodoComponent extends BaseComponent {
+  task: string = "";
+  isCompleted: boolean = false;
+  todoItems: any[] = [];
+  currentItem: any = null;
 
   addTask() {
-    alert("add task");
+    if (this.task.length > 0) {
+      this.todoItems.push({
+        id: Math.random(),
+        task: this.task,
+        isCompleted: this.isCompleted ? "Yes" : "No",
+      });
+    }
+
+    this.resetTask();
+  }
+
+  updateTask() {
+    if (this.currentItem) {
+      let obj = this.todoItems.find((o) => o.id === this.currentItem.id);
+      if (obj) {
+        obj.task = this.task;
+        obj.isCompleted = this.isCompleted ? "Yes" : "No";
+        this.resetTask();
+      }
+    }
+  }
+
+  editTask(item: any) {
+    this.currentItem = item;
+    this.task = item.task;
+    this.isCompleted = item.isCompleted === "Yes" ? true : false;
+  }
+
+  deleteTask(item: any) {
+    let index = this.todoItems.indexOf(item);
+    this.todoItems.splice(index, 1);
+  }
+
+  resetTask() {
+    this.task = "";
+    this.isCompleted = false;
+    this.currentItem = null;
   }
 }
 </script>

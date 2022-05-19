@@ -2,13 +2,42 @@
     <form>
         <div class="vue-form">
             <label for="task">Task</label>
-            <input type="text" placeholder="Enter your Task Description" />
+            <input type="text" v-model="task" placeholder="Enter your Task Description" />
 
             <label for="isCompleted">Is Completed ?</label>
-            <input type="checkbox" />
+            <input type="checkbox" v-model="isCompleted" />
 
-            <input type="button" value="Add" @click.prevent="addTask()" />
+            <input type="button" value="Add Task" v-if="!currentItem" @click.prevent="addTask()" />
+            <input type="button" value="Update Task" v-if="currentItem" @click.prevent="updateTask()" />
 
+        </div>
+        <div id="table">
+            <table class="demo">
+                <caption style="font-weight: 600; margin: 20px;">Todo Items</caption>
+                <thead>
+                    <tr>
+                        <th style="width: 65%;">Task</th>
+                        <th style="width: 15%;">Completed ?</th>
+                        <th style="width: 20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in todoItems">
+                        <td style="display: none;">{{item.id}}</td>
+                        <td style="text-align: left;">{{item.task}}</td>
+                        <td>{{item.isCompleted}}</td>
+                        <td>
+                            <div>
+                                <input type="button" value="Edit" @click.prevent="editTask(item)" />
+                                <input type="button" value="Delete" @click.prevent="deleteTask(item)" />
+                            </div>
+                        </td>
+                    </tr>
+                    <div v-if="todoItems.length === 0">
+                        <p> No Task Found...</p>
+                    </div>
+                </tbody>
+            </table>
         </div>
     </form>
 
