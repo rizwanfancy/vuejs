@@ -1,8 +1,7 @@
 <template src="./Todo.html"></template>
 <script lang="ts">
-import Component from "vue-class-component";
-import Vue from "vue";
 import BaseComponent from "@/Core/BaseComponent.vue";
+import Component from "vue-class-component";
 
 @Component
 export default class TodoComponent extends BaseComponent {

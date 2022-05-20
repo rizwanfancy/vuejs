@@ -14,7 +14,7 @@
     <div class="vue-container">
       <router-view />
     </div>
-    <div class="vue-footer">
+    <footer>
       <div
         style="
           display: flex;
@@ -26,7 +26,7 @@
         <div><p>side1</p></div>
         <div><p>side2</p></div>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 

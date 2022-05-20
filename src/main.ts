@@ -1,6 +1,9 @@
+import '@babel/polyfill'
+import 'mutationobserver-shim'
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import Vue from 'vue'
+import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
 import "./assets/style.scss"

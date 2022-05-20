@@ -1,4 +1,4 @@
-<template src="./About.html"></template>
+<template src="./About.html" ></template>
 <script lang="ts">
 import BaseComponent from "@/Core/BaseComponent.vue";
 import Component from "vue-class-component";

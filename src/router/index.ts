@@ -1,3 +1,4 @@
+import NotFoundComponent from '../views/NotFound/NotFound.vue'
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home/Home.vue'
@@ -25,6 +26,11 @@ const routes: Array<RouteConfig> = [
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact/Contact.vue')
+  },
+  {
+    path: '*',
+    name: 'Not Found',
+    component: NotFoundComponent
   }
 ]
 

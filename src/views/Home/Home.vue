@@ -2,7 +2,6 @@
 <script lang="ts">
 import BaseComponent from "@/Core/BaseComponent.vue";
 import "devextreme/dist/css/dx.light.css";
-import Vue from "vue";
 import Component from "vue-class-component";
 import { Watch } from "vue-property-decorator";
 import HomeUserComponent from "../HomeUsers/Home-User.vue";
