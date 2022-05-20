@@ -1,28 +1,30 @@
-<base-component>
-    <div id="app-container" style="margin-top: 20px;">
-        <p>Contact Form</p>
-        <table border="1px" width="100%" v-if="!selectedEmployee">
-            <thead>
-                <th>Id</th>
-                <th>Age</th>
-                <th>Name</th>
-                <th>Salary</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                <tr v-for="emp in employees">
-                    <td>{{emp.id}}</td>
-                    <td>{{emp.employee_age}}</td>
-                    <td>{{emp.employee_name}}</td>
-                    <td>{{emp.employee_salary}}</td>
-                    <td>
-                        <input type="button" value="Edit" @click.prevent="Edit(emp)" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div v-if="selectedEmployee">
-            <ContactDetailComponent :selectedEmployee="selectedEmployee" @backToContact="backToContact($event)" />
+<div>
+    <base-component v-if="!selectedEmployee">
+        <div id="app-container" style="margin-top: 20px;">
+            <p>Contact Form</p>
+            <table style="border: 1px solid #ddd;" width="100%">
+                <thead>
+                    <th>Id</th>
+                    <th>Age</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr v-for="emp in employees">
+                        <td>{{emp.id}}</td>
+                        <td>{{emp.employee_age}}</td>
+                        <td>{{emp.employee_name}}</td>
+                        <td>{{emp.employee_salary}}</td>
+                        <td>
+                            <input type="button" value="Edit" @click.prevent="Edit(emp)" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </base-component>
+    <div v-if="selectedEmployee">
+        <ContactDetailComponent :selectedEmployee="selectedEmployee" @backToContact="backToContact($event)" />
     </div>
-</base-component>
+</div>
