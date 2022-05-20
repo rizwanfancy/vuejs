@@ -1,8 +1,10 @@
-<div id="app-container">
-    <p>Home Form</p>
-    <input type="text" v-model="firstName" name="firstName" id="firstName">
-    <input type="text" v-model="lastName" name="lastName" id="lastName">
-    {{fullName}}
-    <HomeUserComponent :userList="HomeUsers" @selectedUser="selectedUser" />
-    {{SelectedUser.name | capital}}
-</div>
+<base-component>
+    <div id="app-container">
+        <p>Home Form</p>
+        <input type="text" v-model="firstName" name="firstName" id="firstName">
+        <input type="text" v-model="lastName" name="lastName" id="lastName">
+        {{fullName}}
+        <HomeUserComponent :userList="HomeUsers" @selectedUser="selectedUser" />
+        {{SelectedUser.name | capital}}
+    </div>
+</base-component>
