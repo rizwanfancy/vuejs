@@ -14,19 +14,6 @@
     <div class="vue-container">
       <router-view />
     </div>
-    <footer>
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          margin-left: 20px;
-          margin-right: 20px;
-        "
-      >
-        <div><p>side1</p></div>
-        <div><p>side2</p></div>
-      </div>
-    </footer>
   </div>
 </template>
 

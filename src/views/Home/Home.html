@@ -1,10 +1,18 @@
 <base-component>
-    <div id="app-container">
-        <p>Home Form</p>
-        <input type="text" v-model="firstName" name="firstName" id="firstName">
-        <input type="text" v-model="lastName" name="lastName" id="lastName">
-        {{fullName}}
-        <HomeUserComponent :userList="HomeUsers" @selectedUser="selectedUser" />
-        {{SelectedUser.name | capital}}
-    </div>
+    <template v-slot:content>
+        <div id="app-container">
+            <p v-size="'large'">Home Form</p>
+            <button @click.prevent="applyStyle = !applyStyle">Toggle Style</button>
+            <div :class="{applyStyle: applyStyle && true}">
+                <div>
+                    <input type="text" ref="input" />
+                    <input type="button" value="Focus Me." @click.prevent="focusRef()" />
+                </div>
+            </div>
+        </div>
+        <input type="button" value="Todo" @click="focusItem('todo')" />
+        <input type="button" value="About" @click="focusItem('about')" />
+        <component :is="item" />
+    </template>
+
 </base-component>

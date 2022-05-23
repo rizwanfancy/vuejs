@@ -8,12 +8,33 @@ import App from './App.vue'
 import router from './router'
 import "./assets/style.scss"
 
+import PortalVue from 'portal-vue'
+Vue.use(PortalVue)
+
 Vue.config.productionTip = false;
 Vue.filter('capital', (value: any) => {
   if (value)
     return value.toUpperCase();
   else {
     return "";
+  }
+})
+
+Vue.directive("size", {
+  bind(el, binding) {
+    if (binding.value === 'small') {
+      el.style.fontSize = "16px"
+    }
+    else if (binding.value === 'medium') {
+      el.style.fontSize = "26px"
+    }
+    else if (binding.value === 'large') {
+      el.style.fontSize = "36px"
+    }
+    else {
+      el.style.fontSize = "6px"
+    }
+
   }
 })
 
