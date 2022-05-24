@@ -1,8 +1,12 @@
 <div>
     <base-component v-if="!selectedEmployee">
-        <div id="app-container" style="margin-top: 20px;">
-            <p>Contact Form</p>
-        </div>
+        <template slot="content">
+            <div id="app-container" style="margin-top: 20px;">
+                <p>Contact Form</p>
+                <input type="button" value="Add New" @click.prevent="items.push({id:5,total:7755})" />
+                {{total}}
+            </div>
+        </template>
     </base-component>
     <div v-if="selectedEmployee">
         <ContactDetailComponent :selectedEmployee="selectedEmployee" @backToContact="backToContact($event)" />

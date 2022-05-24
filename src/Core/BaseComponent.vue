@@ -57,5 +57,6 @@ export default class BaseComponent extends HttpHelper {
   }
 
   changeTheme() {}
+  
 }
 </script>

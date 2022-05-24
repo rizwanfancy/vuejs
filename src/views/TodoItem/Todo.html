@@ -1,5 +1,8 @@
 <base-component>
-    <div id="app-container">
-        <h3>Todo</h3>
-    </div>
+    <template slot="content">
+        <div id="app-container">
+            <p>Todo Form</p>
+            {{providedValue}}
+        </div>
+    </template>
 </base-component>

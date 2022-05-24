@@ -5,6 +5,8 @@ import "devextreme/dist/css/dx.light.css";
 import Component from "vue-class-component";
 import TodoComponent from "../TodoItem/Todo.vue";
 import AboutComponent from "../About/About.vue";
+import { Provide } from "vue-property-decorator";
+
 @Component({
   components: {
     todo: TodoComponent,
@@ -14,6 +16,8 @@ import AboutComponent from "../About/About.vue";
 export default class HomeComponent extends BaseComponent {
   applyStyle: boolean = false;
   item: string = "todo";
+  @Provide("homeValue") private providedValue: any = "Home value";
+
   focusRef() {
     if (this.$refs && this.$refs.input) {
       let input = this.$refs.input as any;
